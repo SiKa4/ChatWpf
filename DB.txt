@@ -1,0 +1,181 @@
+USE [DBOnlyMan]
+GO
+/****** Object:  Table [dbo].[Genders]    Script Date: 05.12.2022 10:27:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Genders](
+	[id_gender] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+ CONSTRAINT [PK_Genders] PRIMARY KEY CLUSTERED 
+(
+	[id_gender] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Logins]    Script Date: 05.12.2022 10:27:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Logins](
+	[id_login] [int] IDENTITY(1,1) NOT NULL,
+	[Login] [nvarchar](50) NULL,
+	[Password] [nvarchar](50) NULL,
+	[id_user] [int] NOT NULL,
+ CONSTRAINT [PK_Logins] PRIMARY KEY CLUSTERED 
+(
+	[id_login] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Messages]    Script Date: 05.12.2022 10:27:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Messages](
+	[id_user_output] [int] NOT NULL,
+	[id_user_host] [int] NOT NULL,
+	[Message] [nvarchar](50) NULL,
+	[id_message] [int] IDENTITY(1,1) NOT NULL,
+ CONSTRAINT [PK_Messages_1] PRIMARY KEY CLUSTERED 
+(
+	[id_message] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 05.12.2022 10:27:40 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Users](
+	[id_user] [int] IDENTITY(1,1) NOT NULL,
+	[Name] [nvarchar](50) NULL,
+	[id_gender] [int] NOT NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[id_user] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Genders] ON 
+GO
+INSERT [dbo].[Genders] ([id_gender], [Name]) VALUES (1, N'Man')
+GO
+INSERT [dbo].[Genders] ([id_gender], [Name]) VALUES (2, N'Girl')
+GO
+SET IDENTITY_INSERT [dbo].[Genders] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Logins] ON 
+GO
+INSERT [dbo].[Logins] ([id_login], [Login], [Password], [id_user]) VALUES (1, N'123', N'123', 1)
+GO
+INSERT [dbo].[Logins] ([id_login], [Login], [Password], [id_user]) VALUES (2, N'234', N'234', 2)
+GO
+INSERT [dbo].[Logins] ([id_login], [Login], [Password], [id_user]) VALUES (3, N'345', N'345', 3)
+GO
+SET IDENTITY_INSERT [dbo].[Logins] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Messages] ON 
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'Gey', 1)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (2, 1, N'Пошел нахуйц', 2)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'Нет', 3)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'Сам пошел', 4)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'da', 5)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 6)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 7)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 8)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 9)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 10)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 11)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 12)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 13)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 14)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 15)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 16)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 17)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 18)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 19)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 20)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 21)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 22)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 23)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 24)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 25)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 26)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 27)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 28)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (1, 2, N'fgfg', 29)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (2, 3, N'123', 30)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (3, 2, N'234', 31)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (2, 3, N'Сын шлюхи', 32)
+GO
+INSERT [dbo].[Messages] ([id_user_output], [id_user_host], [Message], [id_message]) VALUES (2, 3, N'Сама', 33)
+GO
+SET IDENTITY_INSERT [dbo].[Messages] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Users] ON 
+GO
+INSERT [dbo].[Users] ([id_user], [Name], [id_gender]) VALUES (1, N'Гей Ильяс', 2)
+GO
+INSERT [dbo].[Users] ([id_user], [Name], [id_gender]) VALUES (2, N'Артюхин гей', 1)
+GO
+INSERT [dbo].[Users] ([id_user], [Name], [id_gender]) VALUES (3, N'Газик Гей', 1)
+GO
+SET IDENTITY_INSERT [dbo].[Users] OFF
+GO
+ALTER TABLE [dbo].[Logins]  WITH CHECK ADD  CONSTRAINT [FK_Logins_Users] FOREIGN KEY([id_user])
+REFERENCES [dbo].[Users] ([id_user])
+GO
+ALTER TABLE [dbo].[Logins] CHECK CONSTRAINT [FK_Logins_Users]
+GO
+ALTER TABLE [dbo].[Messages]  WITH CHECK ADD  CONSTRAINT [FK_Messages_Users] FOREIGN KEY([id_user_output])
+REFERENCES [dbo].[Users] ([id_user])
+GO
+ALTER TABLE [dbo].[Messages] CHECK CONSTRAINT [FK_Messages_Users]
+GO
+ALTER TABLE [dbo].[Messages]  WITH CHECK ADD  CONSTRAINT [FK_Messages_Users1] FOREIGN KEY([id_user_host])
+REFERENCES [dbo].[Users] ([id_user])
+GO
+ALTER TABLE [dbo].[Messages] CHECK CONSTRAINT [FK_Messages_Users1]
+GO
+ALTER TABLE [dbo].[Users]  WITH CHECK ADD  CONSTRAINT [FK_Users_Genders] FOREIGN KEY([id_gender])
+REFERENCES [dbo].[Genders] ([id_gender])
+GO
+ALTER TABLE [dbo].[Users] CHECK CONSTRAINT [FK_Users_Genders]
+GO
